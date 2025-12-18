@@ -469,7 +469,8 @@ render() {
       role="button"
       tabindex="0"
       aria-label="Show details"
-      .header=${this.config.title || undefined}                 
+      .header=${this.config.title || undefined}      
+      style="cursor:pointer"           
       @click=${this._onClick}
       @keydown=${this._onKeyDown}
     >
