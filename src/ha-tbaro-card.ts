@@ -440,6 +440,10 @@ render() {
   const viewHeight = gaugeAngle === 180 ? 180 : 300;
   const clipHeight = gaugeAngle === 180 ? (size! / 300) * 180 : 'auto';
 
+  // before building the template
+  const hasTitle = !!this.config.title;
+  const svgTop = hasTitle ? '-8px' : '0';   // tighten title→gauge gap
+
   return html`
     <ha-card 
       role="button"
@@ -452,7 +456,7 @@ render() {
     
      
 
-      ${svg`<svg viewBox="0 0 300 ${viewHeight}" style="max-width:${size}px;height:auto">
+      ${svg`<svg viewBox="0 0 300 ${viewHeight}" style="max-width:${size}px;height:auto;display:block;margin-top:${svgTop};">
    
         ${this.config.border !== 'none' && (this.config.border === 'inner' || this.config.border === 'both') ? borderInner : nothing}
         ${this.config.border === 'outer' || this.config.border === 'both' ? borderOuter : nothing}
