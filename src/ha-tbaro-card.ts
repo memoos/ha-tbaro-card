@@ -259,6 +259,7 @@ render() {
 
   const pressure = this.pressure;
   const {
+    title,
     needle_color,
     tick_color,
     size,
@@ -445,6 +446,7 @@ render() {
       tabindex="0"
       aria-label="Show details"
       style="box-shadow:none;background:transparent;border:none;border:none;border-radius:0; cursor:pointer;"
+      .header=${title || undefined}                 
       @click=${this._onClick}
       @keydown=${this._onKeyDown}
     >
