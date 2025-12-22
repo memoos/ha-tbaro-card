@@ -42,7 +42,8 @@ interface BaroCardConfig {
   unit?: 'hpa' | 'mm' | 'in';
   needle_color?: string;
   tick_color?: string;
-  show_icon?: boolean;
+  show_weather_icon?: boolean;
+  show_weather_text?: boolean;
   show_pressure?: boolean;
   stroke_width?: number;
   size?: number;
@@ -91,7 +92,8 @@ export class HaTbaroCard extends LitElement {
     this.config = {
       needle_color:   'var(--primary-color)',        // aiguille
       tick_color:     'var(--primary-text-color)',   // graduations & point
-      show_icon: true,
+      show_weather_icon: true,
+      show_weather_text: true,
       show_pressure: true,
       stroke_width: 20,
       border: 'outer',   // valeur par défaut
@@ -427,8 +429,13 @@ render() {
   const borderArc = svg`<path d="${this.describeArc(cx, cy, borderRadius, startAngle, endAngle)}" stroke="#000" stroke-width="1" fill="none" />`;
 
   //  <image href="${this.getIconDataUrl(weather.icon)}" x="${iconX}" y="${iconY}" width="50" height="50" />
-  const svgIcon = svg`<image href="${this.getIconDataUrl(weather.icon)}" x="${iconX}" y="${iconY}" width="50" height="50" />`;
-  const weatherLabel = svg`<text x="${cx}" y="${labelY}" font-size="14" class="label">${label}</text>`;
+  const svgIcon = (this.config.show_weather_icon 
+        ? svg`<image href="${this.getIconDataUrl(weather.icon)}" x="${iconX}" y="${iconY}" width="50" height="50" />`
+        : '');
+
+  const weatherLabel = (this.config.show_weather_text
+        ? svg`<text x="${cx}" y="${labelY}" font-size="14" class="label">${label}</text>`
+        : '');
 
   const svgPressText = (this.config.show_pressure 
         ? svg`<text x="${cx}" y="${pressureY}" font-size="22" font-weight="bold" class="label">
@@ -496,7 +503,7 @@ render() {
 
     </ha-card>
   `;
-    //  si on veut afficher une image en HTML: ${show_icon ? this.getIcon(weather.icon) : nothing}
+    //  si on veut afficher une image en HTML: ${show_weather_icon ? this.getIcon(weather.icon) : nothing}
     // mais il faut le faire hors du svg...
   }
 }

@@ -84,6 +84,9 @@ L’option `angle: 180` adapte dynamiquement :
 ```yaml
 type: custom:ha-tbaro-card
 entity: sensor.pressure_outdoor
+show_weather_icon: true
+show_weather_text: true
+show_pressure: true
 angle: 180          # 180 or 270 (optional, default 270)
 unit: mm            # hpa or mm (optional, default hpa)
 show_border: true

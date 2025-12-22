@@ -8,6 +8,9 @@ const fireEvent = (node: HTMLElement, type: string, detail?: any) =>
 type Config = {
   entity?: string;
   title?: string;
+  show_weather_icon?: boolean;
+  show_weather_text?: boolean;
+  show_pressure?: boolean;
   angle?: 180 | 270;
   unit?: 'hpa' | 'mm' | 'in';
   border?: 'inner' | 'outer' | 'both' | 'none';
@@ -35,6 +38,9 @@ export class HaTbaroCardEditor extends LitElement {
   private _schema = [
     { name: 'entity', selector: { entity: { domain: 'sensor' } } },
     { name: 'title', selector: { text: {} } },
+    { name: 'show_weather_icon', selector: { boolean: {} } },
+    { name: 'show_weather_text', selector: { boolean: [] } },
+    { name: 'show_pressure', selector: { boolean: [] } },
     { name: 'angle', selector: { select: { options: [ {value: 180, label: '180°'}, {value: 270, label: '270°'} ] } } },
     { name: 'unit', selector: { select: { options: [ {value: 'hpa', label: 'hPa'}, {value: 'mm', label: 'mmHg'}, {value: 'in', label: 'inHg'} ] } } },
     { name: 'border', selector: { select: { options: [
