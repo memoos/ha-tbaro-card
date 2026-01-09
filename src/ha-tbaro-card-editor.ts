@@ -59,12 +59,13 @@ export class HaTbaroCardEditor extends LitElement {
     { name: 'needle_color', selector: { text: {} } },
     { name: 'tick_color', selector: { text: {} } },
     { name: 'language', selector: { select: { options: [
-      { value: 'en', label: 'en' },
-      { value: 'fr', label: 'fr' },
-      { value: 'ru', label: 'ru' },
-      { value: 'es', label: 'es' },
       { value: 'de', label: 'de' },
+      { value: 'en', label: 'en' },
+      { value: 'es', label: 'es' },
+      { value: 'fr', label: 'fr' },
       { value: 'it', label: 'it' },
+      { value: 'nl', label: 'nl' },
+      { value: 'ru', label: 'ru' },
     ] } } },
   ];
 

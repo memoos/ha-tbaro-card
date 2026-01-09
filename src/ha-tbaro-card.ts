@@ -14,12 +14,14 @@ import rainIcon from './icons/rain.svg';
 import partlyIcon from './icons/partly.svg';
 import stormIcon from './icons/storm.svg';
 
-import fr from '../locales/fr.json';
-import en from '../locales/en.json';
-import ru from '../locales/ru.json';
-import es from '../locales/es.json';
 import de from '../locales/de.json';
+import en from '../locales/en.json';
+import es from '../locales/es.json';
+import fr from '../locales/fr.json';
 import it from '../locales/it.json';
+import nl from '../locales/nl.json';
+import ru from '../locales/ru.json';
+
 
 // Print Version to Console
 import { version, name } from '../package.json'
@@ -62,7 +64,7 @@ export class HaTbaroCard extends LitElement {
   @property({ type: Object }) config!: BaroCardConfig;
 
   private _translations: Record<string, string> = {};
-  private static _localeMap: Record<string, Record<string, string>> = { fr, en, ru, es, de, it };
+  private static _localeMap: Record<string, Record<string, string>> = { en, es, fr, it, nl, ru };
 
   static styles = [
     css`
